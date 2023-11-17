@@ -19,18 +19,18 @@ namespace guneshukuk.WebAPI.Controllers
             _aboutService = aboutService;
             _mapper = mapper;
         }
-        [HttpGet]
+        [HttpGet("GetAll")]
         public IActionResult GetAll()
         {
             var values = _aboutService.TGetAll();
             return Ok(values);  
         }
-        [HttpPost] 
+        [HttpPost("CreateAbout")] 
         public IActionResult CreateAbout (CreateAboutDto createAboutDto)
         {
             var value = _mapper.Map<About>(createAboutDto);
             _aboutService.TAdd(value);
-            return Ok("EKLENDİ");
+            return Ok();
         }
         [HttpGet("GetAboutById")]
         public IActionResult GetAboutById(int id)
@@ -46,7 +46,7 @@ namespace guneshukuk.WebAPI.Controllers
             return Ok();
             
         }
-        [HttpPut]
+        [HttpPut("UpdateAbout")]
         IActionResult UpdateAbout (UpdateAboutDto updateAboutDto)
         {
             var value = _mapper.Map<About>(updateAboutDto);
