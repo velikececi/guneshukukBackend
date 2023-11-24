@@ -1,0 +1,61 @@
+﻿@model List<ResultBookingDto>;
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Randevu İşlemleri</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Randevu Bilgileri</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							Randevu ile ilgili işlemleri aşağıdan gerçekleştirebilirsiniz.
+						</div>
+						<table class="table mt-3">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Adı soyadı</th>
+									<th scope="col">E-Posta Adresi</th>
+									<th scope="col">Telefonu</th>
+									<th scope="col">Mesaj</th>
+									<th scope="col">Randevu Tarihi</th>
+
+
+
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									<tr>
+										<td>@item.BookingId</td>
+										<td>@item.BookingName</td>
+										<td>@item.BookingEmail</td>
+										<td>@item.BookingPhone</td>
+										<td>@item.BookingMessage</td>
+										<td>@item.BookingDate</td>
+										<td><a href="/Booking/DeleteBooking/@item.BookingId" class="btn btn-outline-danger">Sil</a></td>
+										<td><a href="/Booking/UpdateBooking/@item.BookingId" class="btn btn-outline-success">Güncelle</a></td>
+									</tr>
+
+								}
+
+
+							</tbody>
+						</table>
+						<a href="/Booking/CreateBooking/" class="btn btn-outline-primary"> Yeni Randevu Bilgisi Girişi</a>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+

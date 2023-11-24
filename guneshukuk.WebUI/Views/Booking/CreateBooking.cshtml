@@ -1,0 +1,52 @@
+﻿@model CreateBookingDto;
+@{
+    ViewData["Title"] = "CreateBooking";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">RANDEVU İŞLEMLERİ</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<form method="post">
+					<div class="card">
+						<div class="card-header">
+							<div class="card-title">Randevu Bilgi Girişi</div>
+						</div>
+
+						<div class="card-body">
+							<div class="form-group">
+								<label for="BookingName">Randevu Sahibi Adı Soyadı Giriniz</label>
+								<input type="text" class="form-control" id="BookingName" asp-for="BookingName">
+							</div>
+							<div class="form-group">
+								<label for="BookingEmail">Randevu Sahibi E-Posta Adresi Giriniz</label>
+								<input type="text" class="form-control" id="BookingEmail" asp-for="BookingEmail">
+							</div>
+							<div class="form-group">
+								<label for="BookingPhone">Randevu Sahibi Telefonu Giriniz</label>
+								<input type="text" class="form-control" id="BookingPhone" asp-for="BookingPhone">
+							</div>
+							<div class="form-group">
+								<label for="BookingMessage">Randevu Sahibi Mesajı Giriniz</label>
+								<input type="text" class="form-control" id="BookingMessage" asp-for="BookingMessage">
+							</div>
+							<div class="form-group">								
+								<label for="BookingDate">Randevu Tarihi Giriniz</label>
+								<input type="datetime-local" class="form-control"   id="BookingDate" asp-for="BookingDate">				
+							
+							</div>
+
+						</div>
+						<div class="card-action">
+							<button class="btn btn-primary">Randevu Ekle</button>
+
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>	
+</div>
+

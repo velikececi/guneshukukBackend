@@ -19,7 +19,7 @@ namespace guneshukuk.WebAPI.Controllers
             _contactService = contactService;
             _mapper = mapper;
         }
-        [HttpGet]
+        [HttpGet("GetAll")]
         public IActionResult GetAll()
         {
             var values = _contactService.TGetAll();
@@ -31,7 +31,7 @@ namespace guneshukuk.WebAPI.Controllers
             var value = _contactService.TGetById(id);
             return Ok(value);
         }
-        [HttpPost]
+        [HttpPost("CreateContact")]
         public IActionResult CreateContact(CreateContactDto createContactDto)
         {
             var value = _mapper.Map<Contact>(createContactDto);
@@ -46,7 +46,7 @@ namespace guneshukuk.WebAPI.Controllers
             _contactService.TUpdate(value);
             return Ok(value);
         }
-        [HttpDelete]
+        [HttpDelete("DeleteContact/{id}")]
         public IActionResult DeleteContact(int id)
         {
             var value = _contactService.TGetById(id);

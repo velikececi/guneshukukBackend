@@ -38,8 +38,8 @@ namespace guneshukuk.WebAPI.Controllers
             var value = _aboutService.TGetById(id);
             return Ok(value);
         }
-        [HttpDelete]
-        public IActionResult DeleteAboutById(int id)
+        [HttpDelete("DeleteAbout/{id}")]
+        public IActionResult Delete(int id)
         {
             var value = _aboutService.TGetById(id);
             _aboutService.TDelete(value);
@@ -47,7 +47,7 @@ namespace guneshukuk.WebAPI.Controllers
             
         }
         [HttpPut("UpdateAbout")]
-        IActionResult UpdateAbout (UpdateAboutDto updateAboutDto)
+       public IActionResult UpdateAbout (UpdateAboutDto updateAboutDto)
         {
             var value = _mapper.Map<About>(updateAboutDto);
             _aboutService.TUpdate(value);

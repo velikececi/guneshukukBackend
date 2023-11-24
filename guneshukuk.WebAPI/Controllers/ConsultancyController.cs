@@ -31,21 +31,22 @@ namespace guneshukuk.WebAPI.Controllers
             var value = _consultancyService.TGetById(id);
             return Ok(value);   
         }
-        [HttpPost]
+        [HttpPost("CreateConsultancy")]
         public IActionResult CreateConsultancy(CreateConsultancyDto createConsultancyDto)
         {
             var value = _mapper.Map<Consultancy>(createConsultancyDto);
             _consultancyService.TAdd(value);
             return Ok();
         }
-        [HttpPut]
+        [HttpPut("UpdateConsultancy")]
         public IActionResult UpdateConsultancy(UpdateConsultancyDto updateConsultancyDto) 
         {
             var value = _mapper.Map<Consultancy>(updateConsultancyDto);
             _consultancyService.TUpdate(value);
             return Ok();
         }
-        [HttpDelete]
+
+        [HttpDelete("DeleteConsultancy/{id}")]
         public IActionResult DeleteConsultancy(int id) 
         {
             var value = _consultancyService.TGetById(id);

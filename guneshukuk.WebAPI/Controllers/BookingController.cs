@@ -19,7 +19,7 @@ namespace guneshukuk.WebAPI.Controllers
             _bookingService = bookingService;
             _mapper = mapper;
         }
-        [HttpGet]
+        [HttpGet("GetAll")]
         public IActionResult GetAll() 
         {
             var values = _bookingService.TGetAll();
@@ -31,7 +31,7 @@ namespace guneshukuk.WebAPI.Controllers
             var value = _bookingService.TGetById(id);
             return Ok(value);   
         }
-        [HttpPost]
+        [HttpPost("CreateBooking")]
         public IActionResult CreateBooking(CreateBookingDto createBookingDto)
         {
             var value = _mapper.Map<Booking>(createBookingDto);
@@ -46,7 +46,7 @@ namespace guneshukuk.WebAPI.Controllers
             _bookingService.TUpdate(value);
             return Ok(value);
         }
-        [HttpDelete]
+        [HttpDelete("DeleteBooking/{id}")]
         public IActionResult DeleteBooking(int id)
         {
             var value = _bookingService.TGetById(id);

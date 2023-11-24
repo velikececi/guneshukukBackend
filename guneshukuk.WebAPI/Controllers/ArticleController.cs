@@ -20,7 +20,7 @@ namespace guneshukuk.WebAPI.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
+        [HttpGet("GetAll")]
         public IActionResult GetAll()
         {
             var values =_articleService.TGetAll();
@@ -34,7 +34,7 @@ namespace guneshukuk.WebAPI.Controllers
             return Ok(value);
         }
 
-        [HttpPost]
+        [HttpPost("CreateArticle")]
         public IActionResult CreateArticle(CreateArticleDto createArticleDto)
         {
             var value = _mapper.Map<Article>(createArticleDto);
@@ -42,7 +42,7 @@ namespace guneshukuk.WebAPI.Controllers
             return Ok();
         }
 
-        [HttpDelete]
+        [HttpDelete("DeleteArticle/{id}")]
         public IActionResult DeleteArticle(int id)
         {
             var value = _articleService.TGetById(id);
@@ -50,7 +50,7 @@ namespace guneshukuk.WebAPI.Controllers
             return Ok();
         }
 
-        [HttpPut]
+        [HttpPut("UpdateArticle")]
 
         public IActionResult UpdateArticle(UpdateArticleDto updateArticleDto)
         {

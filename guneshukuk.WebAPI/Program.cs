@@ -42,7 +42,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-app.UseCors(builder=>builder.WithOrigins("BURAYA WEB SÝTESÝ ADRESÝ GELECEK").AllowAnyHeader());
+app.UseCors(builder=>builder.WithOrigins("https://localhost:7108/").AllowAnyHeader());
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
