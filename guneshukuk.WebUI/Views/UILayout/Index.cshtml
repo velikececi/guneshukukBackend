@@ -1,0 +1,26 @@
+﻿
+@{
+    Layout = null;
+}
+@*UILAYOUT INDEX*@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+@await Component.InvokeAsync("_UILayoutHeaderComponentPartial")
+
+<body data-spy="scroll" data-target=".onpage-navigation" data-offset="60">
+    <main>
+        <div class="page-loader">
+            <div class="loader">Loading...</div>
+        </div>
+        @await Component.InvokeAsync("_UILayoutNavbarComponentPartial")
+        <section class="home-section home-full-height bg-dark-30" id="home" data-background="/TitanTheme/live/assets/images/section-5.jpg">
+            @RenderBody()
+           
+        </section>
+       
+        @await Component.InvokeAsync("_UILayoutFooterComponentPartial")
+        <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
+    </main>
+   @await Component.InvokeAsync("_UILayoutScriptComponentPartial")
+</body>
+</html>
