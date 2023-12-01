@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using guneshukuk.DataAccessLayer.Concrete;
 
@@ -11,9 +12,11 @@ using guneshukuk.DataAccessLayer.Concrete;
 namespace guneshukuk.DataAccessLayer.Migrations
 {
     [DbContext(typeof(GuneshukukContext))]
-    partial class GuneshukukContextModelSnapshot : ModelSnapshot
+    [Migration("20231201082347_add_identity")]
+    partial class add_identity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -265,10 +268,6 @@ namespace guneshukuk.DataAccessLayer.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ArticleId"));
 
                     b.Property<string>("ArticleContent")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ArticleImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

@@ -1,8 +1,23 @@
-var builder = WebApplication.CreateBuilder(args);
+using guneshukuk.DataAccessLayer.Concrete;
+using guneshukuk.EntityLayer.Entities;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
+var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+builder.Services.AddDbContext<GuneshukukContext>();
+builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<GuneshukukContext>();
 builder.Services.AddHttpClient();
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews(opt =>
+{
+    opt.Filters.Add(new AuthorizeFilter(requireAuthorizePolicy));
+});
+
+builder.Services.ConfigureApplicationCookie(opt =>
+{
+    opt.LoginPath = "/Login/Index";
+    opt.LogoutPath = "/";
+});
 
 var app = builder.Build();
 
@@ -21,8 +36,12 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Default}/{action=Index}/{id?}");
+
+   
 
 app.Run();

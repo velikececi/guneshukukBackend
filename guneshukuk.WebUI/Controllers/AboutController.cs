@@ -16,7 +16,7 @@ namespace guneshukuk.WebUI.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task< IActionResult> Index()
         {
             HttpClient httpClient = _httpClientFactory.CreateClient();
@@ -30,9 +30,9 @@ namespace guneshukuk.WebUI.Controllers
 
             return View();
         }
-
         [HttpGet]
-        public async Task<IActionResult> UIIndex()
+        [AllowAnonymous]
+        public async Task<IActionResult> UIndex()
         {
             HttpClient httpClient = _httpClientFactory.CreateClient();
             var responseMessage = await httpClient.GetAsync("https://localhost:7183/api/About/GetAll");
@@ -46,14 +46,15 @@ namespace guneshukuk.WebUI.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
+
+        //[Authorize(Roles = "Admin")]
         public IActionResult CreateAbout()
         {
             return View();
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public async Task<IActionResult>CreateAbout(CreateAboutDto createAboutDto)
         {
             var httpClient = _httpClientFactory.CreateClient();
@@ -66,7 +67,7 @@ namespace guneshukuk.WebUI.Controllers
             }
             return View();
         }
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteAbout(int id)
         {
             HttpClient httpClient= _httpClientFactory.CreateClient();
@@ -77,7 +78,7 @@ namespace guneshukuk.WebUI.Controllers
             }
             return View();
         }
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateAbout(int Id)
         {
             HttpClient httpclient= _httpClientFactory.CreateClient();
@@ -97,7 +98,7 @@ namespace guneshukuk.WebUI.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public async Task<IActionResult> UpdateAbout(UpdateAboutDto updateAboutDto)
         {
             HttpClient httpClient = _httpClientFactory.CreateClient();

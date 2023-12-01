@@ -1,4 +1,5 @@
 ﻿using guneshukuk.EntityLayer.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace guneshukuk.DataAccessLayer.Concrete
 {
-    public class GuneshukukContext:DbContext
+    public class GuneshukukContext:IdentityDbContext<AppUser,AppRole,int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

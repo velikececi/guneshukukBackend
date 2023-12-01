@@ -1,0 +1,43 @@
+﻿@model RegisterDto
+@{
+    Layout = null;
+}
+@*REGISTER*@
+@await Component.InvokeAsync("_UILayoutHeaderComponentPartial")
+@await Component.InvokeAsync("_UILayoutNavbarComponentPartial")
+<section class="home-section home-full-height bg-dark-30" id="home" data-background="/TitanTheme/live/assets/images/section-5.jpg">
+<section class="module">
+    <div class="container">
+        <div class="row">
+           
+            <div class="col-sm-6">
+                <h4 class="font-alt">KAYIT OL</h4>
+                <hr class="divider-w mb-10">
+                <form class="form" method="post">
+                    <div class="form-group">
+                        <input class="form-control" id="Name" type="text"  placeholder="Adınız"  asp-for="Name"/>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="Surname" type="text" placeholder="Soyadınız"  asp-for="Surname"/>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="E-mail" type="text"  placeholder="E-Posta Adresiniz" asp-for="Email" />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="Username" type="text" placeholder="Kullanıcı Adı" asp-for="UserName" />
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" id="Password" type="password"  placeholder="Şifre"  asp-for="Password"/>
+                    </div>
+                   
+                    <div class="form-group">
+                        <button class="btn btn-block btn-round btn-b">Kayıt Ol</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</section>
+@await Component.InvokeAsync("_UILayoutFooterComponentPartial")
+@await Component.InvokeAsync("_UILayoutScriptComponentPartial")

@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+@await Component.InvokeAsync("_UILayoutHeaderComponentPartial")
+@await Component.InvokeAsync("_UILayoutNavbarComponentPartial")
+<section class="home-section home-full-height bg-dark-30" id="home" data-background="/TitanTheme/live/assets/images/section-5.jpg">
+    <section class="module">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+
+
+
+                    <div class="row multi-columns-row mb-70">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="content-box">
+                                    <div class="content-box-image"><img src="/TitanTheme/live/assets/images/post-1.jpg" alt="@item.Title" /></div>
+                                    <h3 class="content-box-title font-serif">@item.Title</h3>@item.Description
+                                </div>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</section>
+
+@await Component.InvokeAsync("_UILayoutFooterComponentPartial")
+
+@await Component.InvokeAsync("_UILayoutScriptComponentPartial")
