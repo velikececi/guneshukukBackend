@@ -1,0 +1,29 @@
+﻿@*ARTICLE*@
+@model List<ResultArticleDto>
+@{
+    Layout = null;
+}@await Component.InvokeAsync("_UILayoutHeaderComponentPartial")
+@await Component.InvokeAsync("_UILayoutNavbarComponentPartial")
+<section class="home-section home-full-height bg-dark-30" id="home" data-background="/TitanTheme/live/assets/images/section-5.jpg">
+    @foreach (var item in Model)
+    {
+        <section class="module">
+            <div class="container">
+                <div class="row">
+                    <div class="content-box">
+                        <h3 class="content-box-title font-serif">@item.ArticleTitle</h3>
+                        <div class="content-box-image"><img src="@item.ArticleImageUrl" /></div>
+                        <p class="content-box"> @item.ArticleContent</p>
+                        
+                    </div>
+                </div>
+            </div>
+</section>
+    }
+</section>
+
+@await Component.InvokeAsync("_UILayoutFooterComponentPartial")
+
+@await Component.InvokeAsync("_UILayoutScriptComponentPartial")
+
+

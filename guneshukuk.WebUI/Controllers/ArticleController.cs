@@ -1,10 +1,12 @@
 ﻿using guneshukuk.WebUI.Dtos.ArticleDtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Text;
 
 namespace guneshukuk.WebUI.Controllers
 {
+	
 	public class ArticleController : Controller
 	{
 		private readonly IHttpClientFactory _httpClientFactory;
@@ -14,6 +16,8 @@ namespace guneshukuk.WebUI.Controllers
 			_httpClientFactory = httpClientFactory;
 		}
 
+		[HttpGet]
+		
 		public async Task<IActionResult> Index()
 		{
 			HttpClient httpClient = _httpClientFactory.CreateClient();
@@ -27,7 +31,22 @@ namespace guneshukuk.WebUI.Controllers
 			return View();
 		}
 
-		public IActionResult CreateArticle()
+        [HttpGet]
+		[AllowAnonymous]
+        public async Task<IActionResult> UIndex()
+        {
+            HttpClient httpClient = _httpClientFactory.CreateClient();
+            var responseMessage = await httpClient.GetAsync("https://localhost:7183/api/Article/GetAll");
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ResultArticleDto>>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
+
+        public IActionResult CreateArticle()
 		{ 
 			return View(); 
 		}
