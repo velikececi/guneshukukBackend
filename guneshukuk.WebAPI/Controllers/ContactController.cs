@@ -2,7 +2,6 @@
 using guneshukuk.BusinessLayer.Abstract;
 using guneshukuk.EntityLayer.Dtos.Contact;
 using guneshukuk.EntityLayer.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace guneshukuk.WebAPI.Controllers
@@ -26,7 +25,7 @@ namespace guneshukuk.WebAPI.Controllers
             return Ok(values);
         }
         [HttpGet("GetContactById")]
-        public IActionResult GetContactById(int id) 
+        public IActionResult GetContactById(int id)
         {
             var value = _contactService.TGetById(id);
             return Ok(value);

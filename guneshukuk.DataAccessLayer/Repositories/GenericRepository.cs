@@ -1,14 +1,9 @@
 ﻿using guneshukuk.DataAccessLayer.Abstract;
 using guneshukuk.DataAccessLayer.Concrete;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace guneshukuk.DataAccessLayer.Repositories
 {
-    public class GenericRepository<T> : IGenericDal<T>  where T:class
+    public class GenericRepository<T> : IGenericDal<T> where T : class
     {
         private readonly GuneshukukContext _context;
         public GenericRepository(GuneshukukContext context)

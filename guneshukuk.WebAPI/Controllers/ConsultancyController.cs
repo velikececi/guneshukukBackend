@@ -2,7 +2,6 @@
 using guneshukuk.BusinessLayer.Abstract;
 using guneshukuk.EntityLayer.Dtos.Consultancy;
 using guneshukuk.EntityLayer.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace guneshukuk.WebAPI.Controllers
@@ -20,16 +19,16 @@ namespace guneshukuk.WebAPI.Controllers
             _mapper = mapper;
         }
         [HttpGet("GetAll")]
-        public IActionResult GetAll() 
+        public IActionResult GetAll()
         {
             var values = _consultancyService.TGetAll();
             return Ok(values);
         }
         [HttpGet("GetConsultancyById")]
-        public IActionResult GetConsultancyById(int id) 
+        public IActionResult GetConsultancyById(int id)
         {
             var value = _consultancyService.TGetById(id);
-            return Ok(value);   
+            return Ok(value);
         }
         [HttpPost("CreateConsultancy")]
         public IActionResult CreateConsultancy(CreateConsultancyDto createConsultancyDto)
@@ -39,7 +38,7 @@ namespace guneshukuk.WebAPI.Controllers
             return Ok();
         }
         [HttpPut("UpdateConsultancy")]
-        public IActionResult UpdateConsultancy(UpdateConsultancyDto updateConsultancyDto) 
+        public IActionResult UpdateConsultancy(UpdateConsultancyDto updateConsultancyDto)
         {
             var value = _mapper.Map<Consultancy>(updateConsultancyDto);
             _consultancyService.TUpdate(value);
@@ -47,7 +46,7 @@ namespace guneshukuk.WebAPI.Controllers
         }
 
         [HttpDelete("DeleteConsultancy/{id}")]
-        public IActionResult DeleteConsultancy(int id) 
+        public IActionResult DeleteConsultancy(int id)
         {
             var value = _consultancyService.TGetById(id);
             _consultancyService.TDelete(value);

@@ -2,11 +2,11 @@
 
 namespace guneshukuk.WebUI.ViewComponents.UILayoutComponents
 {
-    public class _UILayoutHeaderComponentPartial:ViewComponent
+    public class _UILayoutHeaderComponentPartial : ViewComponent
     {
-       public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke()
         {
-           return View();
-       }
+            return View();
+        }
     }
 }

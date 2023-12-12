@@ -4,7 +4,7 @@ using guneshukuk.EntityLayer.Entities;
 
 namespace guneshukuk.WebAPI.AutoMapper
 {
-    public class ArticleMapper:Profile
+    public class ArticleMapper : Profile
     {
         public ArticleMapper()
         {

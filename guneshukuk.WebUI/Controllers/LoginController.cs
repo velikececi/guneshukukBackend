@@ -25,8 +25,8 @@ namespace guneshukuk.WebUI.Controllers
 
         public async Task<IActionResult> Index(LoginDto loginDto)
         {
-            var result = await _singInManager.PasswordSignInAsync(loginDto.Username, loginDto.Password,false,false);
-            if(result.Succeeded)
+            var result = await _singInManager.PasswordSignInAsync(loginDto.Username, loginDto.Password, false, false);
+            if (result.Succeeded)
             {
                 return RedirectToAction("Index", "About");
             }

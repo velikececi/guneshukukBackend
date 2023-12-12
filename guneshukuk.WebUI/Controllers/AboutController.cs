@@ -16,8 +16,8 @@ namespace guneshukuk.WebUI.Controllers
         }
 
         [HttpGet]
-       
-        public async Task< IActionResult> Index()
+
+        public async Task<IActionResult> Index()
         {
             HttpClient httpClient = _httpClientFactory.CreateClient();
             var responseMessage = await httpClient.GetAsync("https://localhost:7183/api/About/GetAll");
@@ -53,12 +53,12 @@ namespace guneshukuk.WebUI.Controllers
         }
 
         [HttpPost]
-      
-        public async Task<IActionResult>CreateAbout(CreateAboutDto createAboutDto)
+
+        public async Task<IActionResult> CreateAbout(CreateAboutDto createAboutDto)
         {
             var httpClient = _httpClientFactory.CreateClient();
-            var jsonData= JsonConvert.SerializeObject(createAboutDto);
-            StringContent stringContent = new StringContent(jsonData,Encoding.UTF8,"application/json");
+            var jsonData = JsonConvert.SerializeObject(createAboutDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var responseMessage = await httpClient.PostAsync("https://localhost:7183/api/About/CreateAbout", stringContent);
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -66,10 +66,10 @@ namespace guneshukuk.WebUI.Controllers
             }
             return View();
         }
-        
+
         public async Task<IActionResult> DeleteAbout(int id)
         {
-            HttpClient httpClient= _httpClientFactory.CreateClient();
+            HttpClient httpClient = _httpClientFactory.CreateClient();
             var responseMessage = await httpClient.DeleteAsync($"https://localhost:7183/api/About/DeleteAbout/{id}");
             if (responseMessage.IsSuccessStatusCode)
             {
@@ -77,32 +77,32 @@ namespace guneshukuk.WebUI.Controllers
             }
             return View();
         }
-      
+
         public async Task<IActionResult> UpdateAbout(int Id)
         {
-            HttpClient httpclient= _httpClientFactory.CreateClient();
+            HttpClient httpclient = _httpClientFactory.CreateClient();
             var responseMessage = await httpclient.GetAsync($"https://localhost:7183/api/About/GetAboutById?Id={Id}");
-           
 
 
-			if (responseMessage.IsSuccessStatusCode)
+
+            if (responseMessage.IsSuccessStatusCode)
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync();
                 var value = JsonConvert.DeserializeObject<UpdateAboutDto>(jsonData);
-               
-                return View(value);                
+
+                return View(value);
             }
             return View();
 
         }
 
         [HttpPost]
-      
+
         public async Task<IActionResult> UpdateAbout(UpdateAboutDto updateAboutDto)
         {
             HttpClient httpClient = _httpClientFactory.CreateClient();
-            var jsonData =  JsonConvert.SerializeObject(updateAboutDto);
-            StringContent content = new StringContent(jsonData,Encoding.UTF8,"application/json");
+            var jsonData = JsonConvert.SerializeObject(updateAboutDto);
+            StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
             var responseMessage = await httpClient.PutAsync("https://localhost:7183/api/About/UpdateAbout", content);
             if (responseMessage.IsSuccessStatusCode)
             {

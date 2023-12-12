@@ -2,12 +2,12 @@
 
 namespace guneshukuk.WebUI.ViewComponents.LayoutComponents
 {
-	public class _LayoutSidebarPartialComponent:ViewComponent
-	{
+    public class _LayoutSidebarPartialComponent : ViewComponent
+    {
 
-		public IViewComponentResult Invoke ()
-		{
-			return View();
-		}
-	}
+        public IViewComponentResult Invoke()
+        {
+            return View();
+        }
+    }
 }

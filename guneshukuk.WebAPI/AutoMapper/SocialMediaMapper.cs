@@ -4,7 +4,7 @@ using guneshukuk.EntityLayer.Entities;
 
 namespace guneshukuk.WebAPI.AutoMapper
 {
-    public class SocialMediaMapper:Profile
+    public class SocialMediaMapper : Profile
     {
         public SocialMediaMapper()
         {

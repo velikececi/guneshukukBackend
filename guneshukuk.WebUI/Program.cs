@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 var builder = WebApplication.CreateBuilder(args);
 var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
 builder.Services.AddDbContext<GuneshukukContext>();
-builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<GuneshukukContext>();
+builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<GuneshukukContext>();
 builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews(opt =>
 {
@@ -42,6 +42,6 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Default}/{action=Index}/{id?}");
 
-   
+
 
 app.Run();

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace guneshukuk.EntityLayer.Dtos.Booking
+﻿namespace guneshukuk.EntityLayer.Dtos.Booking
 {
     public class GetBookingDto
     {

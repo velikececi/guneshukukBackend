@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace guneshukuk.EntityLayer.Dtos.SocialMedia
+﻿namespace guneshukuk.EntityLayer.Dtos.SocialMedia
 {
-     public class GetSocialMediaDto
+    public class GetSocialMediaDto
     {
         public int SocialMediaId { get; set; }
         public string SocialMediaName { get; set; }

@@ -4,7 +4,7 @@ using guneshukuk.EntityLayer.Entities;
 
 namespace guneshukuk.WebAPI.AutoMapper
 {
-    public class ConsultancyMapper:Profile
+    public class ConsultancyMapper : Profile
     {
         public ConsultancyMapper()
         {

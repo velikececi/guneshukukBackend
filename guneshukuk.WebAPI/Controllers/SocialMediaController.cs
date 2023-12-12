@@ -2,7 +2,6 @@
 using guneshukuk.BusinessLayer.Abstract;
 using guneshukuk.EntityLayer.Dtos.SocialMedia;
 using guneshukuk.EntityLayer.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace guneshukuk.WebAPI.Controllers
@@ -20,16 +19,16 @@ namespace guneshukuk.WebAPI.Controllers
             _mapper = mapper;
         }
         [HttpGet("GetAll")]
-        public IActionResult GetAll() 
+        public IActionResult GetAll()
         {
             var values = _socialMediaService.TGetAll();
-            return Ok(values);  
+            return Ok(values);
         }
         [HttpGet("GetSocialMediaById")]
-        public IActionResult GetSocialMediaById(int id) 
+        public IActionResult GetSocialMediaById(int id)
         {
             var value = _socialMediaService.TGetById(id);
-            return Ok(value);   
+            return Ok(value);
         }
         [HttpPost("CreateSocialMedia")]
         public IActionResult CreateSocialMedia(CreateSocialMediaDto createSocialMediaDto)
@@ -39,7 +38,7 @@ namespace guneshukuk.WebAPI.Controllers
             return Ok();
         }
         [HttpDelete("DeleteSocialMedia/{id}")]
-        public IActionResult DeleteSocialMedia(int id) 
+        public IActionResult DeleteSocialMedia(int id)
         {
             var value = _socialMediaService.TGetById(id);
             _socialMediaService.TDelete(value);

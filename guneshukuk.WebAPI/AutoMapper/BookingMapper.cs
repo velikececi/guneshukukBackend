@@ -4,7 +4,7 @@ using guneshukuk.EntityLayer.Entities;
 
 namespace guneshukuk.WebAPI.AutoMapper
 {
-    public class BookingMapper:Profile
+    public class BookingMapper : Profile
     {
         public BookingMapper()
         {

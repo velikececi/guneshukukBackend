@@ -2,7 +2,6 @@
 using guneshukuk.BusinessLayer.Abstract;
 using guneshukuk.EntityLayer.Dtos.Booking;
 using guneshukuk.EntityLayer.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace guneshukuk.WebAPI.Controllers
@@ -20,7 +19,7 @@ namespace guneshukuk.WebAPI.Controllers
             _mapper = mapper;
         }
         [HttpGet("GetAll")]
-        public IActionResult GetAll() 
+        public IActionResult GetAll()
         {
             var values = _bookingService.TGetAll();
             return Ok(values);
@@ -29,7 +28,7 @@ namespace guneshukuk.WebAPI.Controllers
         public IActionResult GetArticleById(int id)
         {
             var value = _bookingService.TGetById(id);
-            return Ok(value);   
+            return Ok(value);
         }
         [HttpPost("CreateBooking")]
         public IActionResult CreateBooking(CreateBookingDto createBookingDto)

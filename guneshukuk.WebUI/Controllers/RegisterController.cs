@@ -31,10 +31,10 @@ namespace guneshukuk.WebUI.Controllers
                 Email = registerDto.Email,
                 UserName = registerDto.UserName
             };
-            var result = await _userManager.CreateAsync(appUser,registerDto.Password);
-            if(result.Succeeded)
+            var result = await _userManager.CreateAsync(appUser, registerDto.Password);
+            if (result.Succeeded)
             {
-                return RedirectToAction("Index","Login");
+                return RedirectToAction("Index", "Login");
             }
             return View();
         }

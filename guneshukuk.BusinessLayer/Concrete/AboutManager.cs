@@ -1,11 +1,6 @@
 ﻿using guneshukuk.BusinessLayer.Abstract;
 using guneshukuk.DataAccessLayer.Abstract;
 using guneshukuk.EntityLayer.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace guneshukuk.BusinessLayer.Concrete
 {
@@ -31,7 +26,7 @@ namespace guneshukuk.BusinessLayer.Concrete
 
         public List<About> TGetAll()
         {
-           return _aboutDal.GetAll();
+            return _aboutDal.GetAll();
         }
 
         public About TGetById(int id)
@@ -41,7 +36,7 @@ namespace guneshukuk.BusinessLayer.Concrete
 
         public void TUpdate(About entity)
         {
-           _aboutDal.Update(entity);
+            _aboutDal.Update(entity);
         }
     }
 }

@@ -2,7 +2,6 @@
 using guneshukuk.BusinessLayer.Abstract;
 using guneshukuk.EntityLayer.Dtos.Article;
 using guneshukuk.EntityLayer.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace guneshukuk.WebAPI.Controllers
@@ -23,12 +22,12 @@ namespace guneshukuk.WebAPI.Controllers
         [HttpGet("GetAll")]
         public IActionResult GetAll()
         {
-            var values =_articleService.TGetAll();
+            var values = _articleService.TGetAll();
             return Ok(values);
         }
 
         [HttpGet("GetArticleById")]
-        public IActionResult GetArticleById(int id) 
+        public IActionResult GetArticleById(int id)
         {
             var value = _articleService.TGetById(id);
             return Ok(value);
@@ -58,6 +57,6 @@ namespace guneshukuk.WebAPI.Controllers
             _articleService.TUpdate(value);
             return Ok(value);
         }
-        
+
     }
 }

@@ -1,11 +1,6 @@
 ﻿using guneshukuk.BusinessLayer.Abstract;
 using guneshukuk.DataAccessLayer.Abstract;
 using guneshukuk.EntityLayer.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace guneshukuk.BusinessLayer.Concrete
 {
@@ -20,17 +15,17 @@ namespace guneshukuk.BusinessLayer.Concrete
 
         public void TAdd(Consultancy entity)
         {
-           _consultancyDal.Add(entity);
+            _consultancyDal.Add(entity);
         }
 
         public void TDelete(Consultancy entity)
         {
-           _consultancyDal.Delete(entity);
+            _consultancyDal.Delete(entity);
         }
 
         public List<Consultancy> TGetAll()
         {
-            return _consultancyDal.GetAll();    
+            return _consultancyDal.GetAll();
         }
 
         public Consultancy TGetById(int id)

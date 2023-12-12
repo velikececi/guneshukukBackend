@@ -8,10 +8,10 @@ namespace guneshukuk.WebAPI.AutoMapper
     {
         public AboutMapper()
         {
-            CreateMap<About,ResultAboutDto>().ReverseMap();
-            CreateMap<About,CreateAboutDto>().ReverseMap();
-            CreateMap<About,GetAboutDto>().ReverseMap();
-            CreateMap<About,UpdateAboutDto>().ReverseMap();
+            CreateMap<About, ResultAboutDto>().ReverseMap();
+            CreateMap<About, CreateAboutDto>().ReverseMap();
+            CreateMap<About, GetAboutDto>().ReverseMap();
+            CreateMap<About, UpdateAboutDto>().ReverseMap();
 
         }
     }

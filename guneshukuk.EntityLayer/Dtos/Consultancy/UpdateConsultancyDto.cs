@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace guneshukuk.EntityLayer.Dtos.Consultancy
+﻿namespace guneshukuk.EntityLayer.Dtos.Consultancy
 {
-    public  class UpdateConsultancyDto
+    public class UpdateConsultancyDto
     {
         public int ConsultancyId { get; set; }
         public string ConsultancyTitle { get; set; }

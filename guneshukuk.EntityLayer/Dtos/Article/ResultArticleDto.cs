@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace guneshukuk.EntityLayer.Dtos.Article
+﻿namespace guneshukuk.EntityLayer.Dtos.Article
 {
     public class ResultArticleDto
     {

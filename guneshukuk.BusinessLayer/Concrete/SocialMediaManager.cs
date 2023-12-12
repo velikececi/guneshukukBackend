@@ -1,11 +1,6 @@
 ﻿using guneshukuk.BusinessLayer.Abstract;
 using guneshukuk.DataAccessLayer.Abstract;
 using guneshukuk.EntityLayer.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace guneshukuk.BusinessLayer.Concrete
 {
@@ -20,7 +15,7 @@ namespace guneshukuk.BusinessLayer.Concrete
 
         public void TAdd(SocialMedia entity)
         {
-           _socialMediaDal.Add(entity);
+            _socialMediaDal.Add(entity);
         }
 
         public void TDelete(SocialMedia entity)

@@ -2,7 +2,6 @@
 using guneshukuk.BusinessLayer.Abstract;
 using guneshukuk.EntityLayer.Dtos.About;
 using guneshukuk.EntityLayer.Entities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace guneshukuk.WebAPI.Controllers
@@ -23,10 +22,10 @@ namespace guneshukuk.WebAPI.Controllers
         public IActionResult GetAll()
         {
             var values = _aboutService.TGetAll();
-            return Ok(values);  
+            return Ok(values);
         }
-        [HttpPost("CreateAbout")] 
-        public IActionResult CreateAbout (CreateAboutDto createAboutDto)
+        [HttpPost("CreateAbout")]
+        public IActionResult CreateAbout(CreateAboutDto createAboutDto)
         {
             var value = _mapper.Map<About>(createAboutDto);
             _aboutService.TAdd(value);
@@ -44,10 +43,10 @@ namespace guneshukuk.WebAPI.Controllers
             var value = _aboutService.TGetById(id);
             _aboutService.TDelete(value);
             return Ok();
-            
+
         }
         [HttpPut("UpdateAbout")]
-       public IActionResult UpdateAbout (UpdateAboutDto updateAboutDto)
+        public IActionResult UpdateAbout(UpdateAboutDto updateAboutDto)
         {
             var value = _mapper.Map<About>(updateAboutDto);
             _aboutService.TUpdate(value);
