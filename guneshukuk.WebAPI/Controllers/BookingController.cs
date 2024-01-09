@@ -11,12 +11,14 @@ namespace guneshukuk.WebAPI.Controllers
     public class BookingController : ControllerBase
     {
         private readonly IBookingService _bookingService;
+        private readonly IEmailService _emailService;
         private readonly IMapper _mapper;
 
-        public BookingController(IBookingService bookingService, IMapper mapper)
+        public BookingController(IBookingService bookingService, IMapper mapper, IEmailService emailService)
         {
             _bookingService = bookingService;
             _mapper = mapper;
+            _emailService = emailService;
         }
         [HttpGet("GetAll")]
         public IActionResult GetAll()
@@ -34,8 +36,11 @@ namespace guneshukuk.WebAPI.Controllers
         public IActionResult CreateBooking(CreateBookingDto createBookingDto)
         {
             var value = _mapper.Map<Booking>(createBookingDto);
-            _bookingService.TAdd(value);
+            _bookingService.TAdd(value);            
+            
+           _emailService.SendBookingConfirmationEmail(value);
             return Ok();
+
         }
 
         [HttpPut("UpdateBooking")]

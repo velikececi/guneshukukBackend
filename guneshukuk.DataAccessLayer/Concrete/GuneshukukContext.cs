@@ -8,7 +8,7 @@ namespace guneshukuk.DataAccessLayer.Concrete
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=SRMNVLI;Initial Catalog=guneshukuk;TrustServerCertificate=True;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Server=SRMNVLI\SQLEXPRESS;Initial Catalog=guneshukuk;TrustServerCertificate=True;Integrated Security=True");
         }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Article> Articles { get; set; }

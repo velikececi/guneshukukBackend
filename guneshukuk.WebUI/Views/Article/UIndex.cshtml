@@ -1,10 +1,12 @@
-﻿@*ARTICLE*@
+﻿@using Microsoft.AspNetCore.Components
+@*ARTICLE*@
 @model List<ResultArticleDto>
+@attribute [StreamRendering(true)]
 @{
     Layout = null;
 }@await Component.InvokeAsync("_UILayoutHeaderComponentPartial")
 @await Component.InvokeAsync("_UILayoutNavbarComponentPartial")
-<section class="home-section home-full-height bg-dark-30" id="home" data-background="/TitanTheme/live/assets/images/section-5.jpg">
+<section class="home-section home-full-height bg-dark-30" id="home" data-background="/TitanTheme/live/assets/images/background.jpg">
     @foreach (var item in Model)
     {
         <section class="module">

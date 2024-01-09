@@ -13,7 +13,7 @@
             <div class="loader">Loading...</div>
         </div>
         @await Component.InvokeAsync("_UILayoutNavbarComponentPartial")
-        <section class="home-section home-full-height bg-dark-30" id="home" data-background="/TitanTheme/live/assets/images/section-5.jpg">
+        <section class="home-section home-full-height bg-dark-30" id="home" data-background="/TitanTheme/live/assets/images/background.jpg">
             @RenderBody()
            
         </section>
@@ -22,6 +22,7 @@
         <div class="scroll-up"><a href="#totop"><i class="fa fa-angle-double-up"></i></a></div>
     </main>
    @await Component.InvokeAsync("_UILayoutScriptComponentPartial")
-   <ejs-scripts></ejs-scripts>
+    @Html.EJS().ScriptManager()
+   
 </body>
 </html>

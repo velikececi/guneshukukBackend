@@ -33,6 +33,7 @@ namespace guneshukuk.WebUI.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> UIndex()
         {
+            
             HttpClient httpClient = _httpClientFactory.CreateClient();
             var responseMessage = await httpClient.GetAsync("https://localhost:7183/api/Booking/GetAll");
             if (responseMessage.IsSuccessStatusCode)
@@ -43,7 +44,7 @@ namespace guneshukuk.WebUI.Controllers
             }
             return View();
         }
-
+         
         public IActionResult CreateBooking()
         {
             return View();
@@ -59,6 +60,28 @@ namespace guneshukuk.WebUI.Controllers
             if (responseMessage.IsSuccessStatusCode)
             {
                 return RedirectToAction("Index");
+            }
+            return View();
+
+        }
+        [AllowAnonymous]
+        public IActionResult Booking ()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> Booking(CreateBookingDto createBookingDto)
+        {
+
+            HttpClient httpClient = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(createBookingDto);
+            StringContent content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await httpClient.PostAsync("https://localhost:7183/api/Booking/CreateBooking", content);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                return RedirectToAction("Booking");
             }
             return View();
 

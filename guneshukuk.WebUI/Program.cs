@@ -1,11 +1,15 @@
 using guneshukuk.DataAccessLayer.Concrete;
 using guneshukuk.EntityLayer.Entities;
+using guneshukuk.WebUI.ViewComponents.DefaultComponents;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using MudBlazor.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
 builder.Services.AddDbContext<GuneshukukContext>();
+builder.Services.AddMudServices();
+builder.Services.AddRazorComponents().AddInteractiveServerComponents();
 builder.Services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<GuneshukukContext>();
 builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews(opt =>
@@ -36,7 +40,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-
+app.MapRazorComponents<_DefaultHomeComponentPartial>().AddInteractiveServerRenderMode();
 
 app.MapControllerRoute(
     name: "default",

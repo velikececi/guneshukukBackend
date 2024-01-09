@@ -2,7 +2,7 @@
 @model CreateBookingDto
 
 @{
-    ViewData["Title"] = "UIndex";
+    ViewData["Title"] = "Booking";
     Layout = null;
 }
 
@@ -16,7 +16,7 @@
                     <div class="container">
                         <div class="row">
                             <div class='col-sm-6'>
-                                <form class="reservation-form" id="reservationForm" action="php/reservation.php" method="post">
+                                <form class="reservation-form" id="reservationForm" method="post">
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="icon-profile-male"></i></div>
@@ -38,7 +38,7 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="icon-calendar"></i></div>
-                                            <input class="form-control input-lg" id="date" type="date" name="date" placeholder="dd/mm/yyyy" required=""   asp-for="BookingDate"/>
+                                            <input class="form-control input-lg" id="date" type="date" name="date" placeholder="dd/mm/yyyy" required="" asp-for="BookingDate" />
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -54,23 +54,29 @@
                                             </select>
                                         </div>
                                     </div>
-                                    
-                                   
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <div class="input-group-addon"><i class="icon-telephone"></i></div>
+                                            <input class="form-control input-lg" type="text" id="message" name="message" placeholder="Your Message" required="required" data-validation-required-message="Please enter your message here" asp-for="BookingMessage" />
+                                        </div>
+                                    </div>
+
+
                                     <div class="form-group">
                                         <button class="btn btn-g btn-round btn-block btn-lg mt-20" id="rfsubmit" type="submit"><i class="fa fa-paper-plane-o"></i> Reserve</button>
                                     </div>
-                                    <div id="reservationFormResponse"></div>
+                                    
                                 </form>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-   
-   
+
+
 </section>
 @await Component.InvokeAsync("_UILayoutFooterComponentPartial")
 
